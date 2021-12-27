@@ -1,0 +1,9 @@
+.contact {
+  transition: 0.25s;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.highlight {
+  background: #fff;
+  border-radius: 4px;
+}
