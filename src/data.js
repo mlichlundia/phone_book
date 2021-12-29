@@ -1,4 +1,4 @@
-let Data = [
+let data = [
   'Zakary Pacheco',
   'Phillippa Hodge',
   'Laibah Myers',
@@ -51,4 +51,4 @@ let Data = [
   'Farah Dodd',
 ]
 
-export default Data
+export default data
