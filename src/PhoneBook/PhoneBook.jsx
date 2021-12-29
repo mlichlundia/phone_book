@@ -1,17 +1,17 @@
 import React from 'react'
 import ContactContainer from '../ContactContainer/ContactContainer'
-import Data from '../Data/Data'
+import data from '../data'
 import './PhoneBook.css'
 
 function PhoneBook() {
-  let map = new Map()
-  for (let contact of Data) {
-    if (map.has(contact[0])) {
-      map.set(contact[0], map.get(contact[0]).concat(contact))
-    } else map.set(contact[0], [contact])
+  let obj = {}
+  for (let contact of data) {
+    if (obj.hasOwnProperty(contact[0])) {
+      obj[contact[0]].push(contact)
+    } else {
+      obj[contact[0]] = [contact]
+    }
   }
-
-  let obj = Object.fromEntries(map.entries())
 
   return (
     <div className="main-container">
