@@ -1,23 +1,20 @@
 import React from 'react'
 import { useState } from 'react'
 import './Contact.css'
+import classNames from 'classnames'
 
 function Contact(props) {
-  let [className, setClassName] = useState(props.className)
-  let [highlightStatus, setHighlightStatus] = useState(true)
-
+  const [isHighlight, setIsHighlight] = useState(false)
+  const contactClass = classNames({
+    contact: true,
+    highlight: isHighlight,
+  })
   function highlight() {
-    let classHighlight = 'highlight'
-    if (highlightStatus) {
-      setClassName(className + ' ' + classHighlight)
-      setHighlightStatus(false)
-    } else {
-      setClassName(props.className)
-      setHighlightStatus(true)
-    }
+    setIsHighlight(!isHighlight)
   }
+
   return (
-    <p className={className} onClick={highlight}>
+    <p className={contactClass} onClick={highlight}>
       {props.name}
     </p>
   )
