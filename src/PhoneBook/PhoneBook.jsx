@@ -11,7 +11,6 @@ for (let contact of data) {
     obj[contact[0]] = [contact]
   }
 }
-<<<<<<< HEAD
 
 function sortContacts(list) {
   return list.sort((a, b) => {
@@ -24,8 +23,6 @@ function sortContacts(list) {
 }
 
 let list = sortContacts(Object.values(obj))
-=======
->>>>>>> a5d382dce330b2e659c1d618c98db11397ed9fea
 
 function PhoneBook() {
   return (
