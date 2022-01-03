@@ -1,6 +1,7 @@
 import React from 'react'
 import Contact from '../Contact/Contact'
 import './ContactContainer.css'
+import Letter from '../Letter/Letter'
 
 let contacts
 function sortContacts(list) {
@@ -16,12 +17,10 @@ function sortContacts(list) {
 }
 
 function ContactContainer(props) {
-<<<<<<< HEAD
-=======
   sortContacts(props.contactList)
->>>>>>> a5d382dce330b2e659c1d618c98db11397ed9fea
   return (
     <div className="contact-container">
+      <Letter letter={contacts[0][0]} />
       {contacts.map((contact) => (
         <Contact key={contact} name={contact} />
       ))}
