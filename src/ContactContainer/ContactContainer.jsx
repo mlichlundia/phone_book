@@ -5,7 +5,6 @@ import Letter from '../Letter/Letter'
 
 let contacts
 function sortContacts(list) {
-  console.log(list)
   contacts = list
   contacts.sort((a, b) => {
     if (a > b) {
@@ -18,11 +17,18 @@ function sortContacts(list) {
 
 function ContactContainer(props) {
   sortContacts(props.contactList)
+
+  let filteredContacts = contacts.filter((contact) => {
+    return contact.toLowerCase().includes(props.filterText.toLowerCase())
+  })
+  console.log(filteredContacts)
+  let letter = filteredContacts[0]?.[0]
   return (
     <div className="contact-container">
-      <Letter letter={contacts[0][0]} />
-      {contacts.map((contact) => (
-        <Contact key={contact} name={contact} />
+      {letter ? <Letter letter={letter} /> : null}
+
+      {filteredContacts.map((contact) => (
+        <Contact name={contact} key={contact} />
       ))}
     </div>
   )

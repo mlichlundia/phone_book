@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 import ContactContainer from '../ContactContainer/ContactContainer'
 import data from '../data'
 import './PhoneBook.css'
+import SearchBar from '../SearchBar/SearchBar'
 
 let obj = {}
 for (let contact of data) {
@@ -25,12 +27,25 @@ function sortContacts(list) {
 let list = sortContacts(Object.values(obj))
 
 function PhoneBook() {
+  const [filterText, setFilterText] = useState('')
+  function handleChange(value) {
+    setFilterText(value)
+  }
+
   return (
-    <div className="main-container">
-      {list.map((contacts, index) => (
-        <ContactContainer key={index} contactList={contacts} />
-      ))}
-    </div>
+    <>
+      <SearchBar onChange={handleChange} filterText={filterText} />
+
+      <div className="main-container">
+        {list.map((contacts, index) => (
+          <ContactContainer
+            key={index}
+            contactList={contacts}
+            filterText={filterText}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 
