@@ -14,6 +14,7 @@ for (let contact of data) {
   }
 }
 
+console.log(obj)
 function sortContacts(list) {
   return list.sort((a, b) => {
     if (a > b) {
@@ -23,8 +24,8 @@ function sortContacts(list) {
     } else return 0
   })
 }
-
 let list = sortContacts(Object.values(obj))
+list.map((contacts) => sortContacts(contacts))
 
 function PhoneBook() {
   const [filterText, setFilterText] = useState('')
