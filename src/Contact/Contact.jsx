@@ -9,12 +9,9 @@ function Contact(props) {
     contact: true,
     highlight: isHighlight,
   })
-  function highlight() {
-    setIsHighlight(!isHighlight)
-  }
 
   return (
-    <p className={contactClass} onClick={highlight}>
+    <p className={contactClass} onClick={() => setIsHighlight(!isHighlight)}>
       {props.name}
     </p>
   )
