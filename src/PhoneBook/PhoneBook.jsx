@@ -15,7 +15,6 @@ for (let contact of data.sort()) {
 }
 
 let list = Object.values(obj)
-console.log(list)
 
 function PhoneBook() {
   const [filterText, setFilterText] = useState('')
