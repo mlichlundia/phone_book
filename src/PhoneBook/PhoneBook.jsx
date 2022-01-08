@@ -6,7 +6,7 @@ import './PhoneBook.css'
 import SearchBar from '../SearchBar/SearchBar'
 
 let obj = {}
-for (let contact of data) {
+for (let contact of sortContacts(data)) {
   if (obj.hasOwnProperty(contact[0])) {
     obj[contact[0]].push(contact)
   } else {
@@ -14,7 +14,6 @@ for (let contact of data) {
   }
 }
 
-console.log(obj)
 function sortContacts(list) {
   return list.sort((a, b) => {
     if (a > b) {
@@ -24,8 +23,9 @@ function sortContacts(list) {
     } else return 0
   })
 }
-let list = sortContacts(Object.values(obj))
-list.map((contacts) => sortContacts(contacts))
+
+let list = Object.values(obj)
+console.log(list)
 
 function PhoneBook() {
   const [filterText, setFilterText] = useState('')
@@ -35,7 +35,10 @@ function PhoneBook() {
 
   return (
     <>
-      <SearchBar onChange={handleChange} filterText={filterText} />
+      <SearchBar
+        onChange={handleChange}
+        filterText={filterText.toLowerCase()}
+      />
 
       <div className="main-container">
         {list.map((contacts, index) => (

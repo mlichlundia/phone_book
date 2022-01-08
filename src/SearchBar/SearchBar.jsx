@@ -1,14 +1,14 @@
 import React from 'react'
 import './SearchBar.css'
 
-function SearchBar(props) {
+function SearchBar({ filterText, onChange }) {
   return (
     <input
       className="input"
       type="text"
       placeholder="Enter the contact"
-      value={props.filterText}
-      onChange={(e) => props.onChange(e.target.value)}
+      value={filterText}
+      onChange={(e) => onChange(e.target.value)}
     />
   )
 }

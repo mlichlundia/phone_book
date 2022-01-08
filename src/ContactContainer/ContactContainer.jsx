@@ -7,7 +7,7 @@ function ContactContainer(props) {
   const contacts = props.contactList
 
   let filteredContacts = contacts.filter((contact) => {
-    return contact.toLowerCase().includes(props.filterText.toLowerCase())
+    return contact.toLowerCase().includes(props.filterText)
   })
   let letter = filteredContacts[0]?.[0]
   return (
